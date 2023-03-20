@@ -4,8 +4,30 @@ import React from "react";
 import Boton from './components/Boton';
 import Pantalla from './components/Pantalla.jsx';
 import BotonIgual from './components/BotonIgual';
+import { useState } from 'react';
+import { evaluate } from 'mathjs';
 
 function App() {
+
+  const [input, setInput ] = useState('');
+
+  const addInput = val => {
+    setInput(input + val);
+  };
+
+  // const clear = () => {
+  //   setInput('');
+  // };   ver como lo especifican en la linea que recibe la funcion.
+
+  const calcularResultado = () => {
+    if(input){
+      setInput(evaluate(input));
+    } else {
+      alert("Por favor, ingrese valores válidos para hacer los calculos.");
+    }
+    setInput(evaluate(input));
+  };
+
   return (
     <div className="App">
 
@@ -15,34 +37,34 @@ function App() {
             <li></li>
             <li></li>
           </ul>
-          <Pantalla />
+          <Pantalla input={input}/>
           <div className='contenedor-teclas'>
             <div className='column'>
-              <Boton>C</Boton>
-              <Boton>7</Boton>
-              <Boton>4</Boton>
-              <Boton>1</Boton>
+              <Boton manejarClick={() => setInput('')}>C</Boton>
+              <Boton manejarClick={addInput}>7</Boton>
+              <Boton manejarClick={addInput}>4</Boton>
+              <Boton manejarClick={addInput}>1</Boton>
               <Boton> </Boton>
             </div>
             <div className='column'>
-              <Boton>±</Boton>
-              <Boton>8</Boton>
-              <Boton>5</Boton>
-              <Boton>2</Boton>
-              <Boton>0</Boton>
+              <Boton manejarClick={addInput}>±</Boton>
+              <Boton manejarClick={addInput}>8</Boton>
+              <Boton manejarClick={addInput}>5</Boton>
+              <Boton manejarClick={addInput}>2</Boton>
+              <Boton manejarClick={addInput}>0</Boton>
             </div>
             <div className='column'>
-              <Boton>/</Boton>
-              <Boton>9</Boton>
-              <Boton>6</Boton>
-              <Boton>3</Boton>
-              <Boton>.</Boton>
+              <Boton manejarClick={addInput}>/</Boton>
+              <Boton manejarClick={addInput}>9</Boton>
+              <Boton manejarClick={addInput}>6</Boton>
+              <Boton manejarClick={addInput}>3</Boton>
+              <Boton manejarClick={addInput}>.</Boton>
             </div>
             <div className='column'>
-              <Boton>x</Boton>
-              <Boton>-</Boton>
-              <Boton>+</Boton>
-              <BotonIgual>=</BotonIgual>
+              <Boton manejarClick={addInput}>*</Boton>
+              <Boton manejarClick={addInput}>-</Boton>
+              <Boton manejarClick={addInput}>+</Boton>
+              <BotonIgual manejarClick={calcularResultado}>=</BotonIgual>
 
             </div>
           </div>
