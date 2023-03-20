@@ -1,0 +1,26 @@
+.container-buttom {
+    height: 83px;
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    background-color: white;
+    width: 85px;
+    color: black;
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: medium;
+    margin: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.operator {
+    background-color: #f0f0f0;
+}
+
+#equals-buttom {
+    height: 100px;
+    background-color: blueviolet;
+  }

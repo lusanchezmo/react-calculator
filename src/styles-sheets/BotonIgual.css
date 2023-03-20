@@ -1,0 +1,12 @@
+.equals-buttom {
+    height: 90px;
+    font-size: 4em;
+    background-color: rgb(254, 154, 152);
+    bottom: 0;
+    padding-top: 70px;
+    color: white;
+    padding-left: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
